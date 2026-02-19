@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import projectImage1 from "../assets/image.png";
 import projectImage2 from "../assets/image2.png";
 import projectImage3 from "../assets/image3.png";
+import projectImage4 from "../assets/image4.png";
+import projectImage5 from "../assets/image5.png";
 
 export default function Projects() {
   const projectList = [
@@ -12,7 +14,7 @@ export default function Projects() {
         "An admin dashboard UI built with React featuring authentication, role-based access, and clean user experience.",
       github: "https://github.com/KazuhiraXanxus/SMILE-Frontend",
       // Listahan ng images para sa project na ito
-      images: [projectImage1, projectImage2, projectImage3],
+      images: [projectImage1, projectImage2, projectImage3, projectImage4, projectImage5],
     },
   ];
 

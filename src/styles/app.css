@@ -14,7 +14,6 @@ body {
   /* Tinanggal ang bituin background image */
   scroll-behavior: smooth;
 }
-
 /* Loader Screen */
 .loader-screen {
   position: fixed;
@@ -279,6 +278,7 @@ body {
   overflow: hidden;
   background: #0f172a;
   line-height: 0;
+  overflow: hidden;
   position: relative;
   cursor: pointer;
 
