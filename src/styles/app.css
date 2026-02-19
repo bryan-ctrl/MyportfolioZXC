@@ -140,6 +140,7 @@ body {
   margin: 10px 0;
   font-weight: 800;
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
 }
 
 .hero-role {
