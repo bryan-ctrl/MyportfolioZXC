@@ -20,7 +20,7 @@ export default function About() {
         <div className="about-grids">
           {/* Skills */}
           <div className="info-box large-box">
-            <h3>Skills</h3>
+            <h3>Front End</h3>
             <div className="icon-grid">
               <div className="icon-item">
                 <i className="devicon-html5-plain colored"></i>
@@ -44,6 +44,7 @@ export default function About() {
               </div>
             </div>
           </div>
+          
 
           {/* Tools */}
           <div className="info-box large-box">
