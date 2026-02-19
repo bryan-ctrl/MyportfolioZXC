@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
+}
+
+h1 {
+  color: #38bdf8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
