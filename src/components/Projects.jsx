@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// I-import ang lahat ng images
 import projectImage1 from "../assets/image.png";
 import projectImage2 from "../assets/image2.png";
 import projectImage3 from "../assets/image3.png";
@@ -10,17 +9,17 @@ export default function Projects() {
   const projectList = [
     {
       title: "SMILE Admin System",
-      description:
-        "An admin dashboard UI built with React featuring authentication, role-based access, and clean user experience.",
-      github: "https://github.com/KazuhiraXanxus/SMILE-Frontend",
-      // Listahan ng images para sa project na ito
+      // In-update ang description ayon sa request mo
+      description: "Barangay Maligaya is a lively semi-urban community close to a provincial capital. It's home to market vendors, sari-sari store owners, and young freelancers. The community thrives on local trade and digital connectivity, making it a hub of growth and resilience in the region.",
       images: [projectImage1, projectImage2, projectImage3, projectImage4, projectImage5],
     },
   ];
 
   return (
-    <section id="projects" className="section projects-section">
-      <h2 className="section-title">My Project</h2>
+    <section id="projects" className="projects-section">
+      <div className="section-header">
+        <h2 className="section-title">My Project</h2>
+      </div>
       <div className="projects-container">
         {projectList.map((project, index) => (
           <ProjectCard key={index} project={project} />
@@ -30,32 +29,26 @@ export default function Projects() {
   );
 }
 
-// Sub-component para sa bawat Card para independent ang state ng bawat project
 function ProjectCard({ project }) {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   const handleImageClick = () => {
-    // FORMULA: (current + 1) % total_length
-    // Ito ay mag-iikot sa 0, 1, 2, tapos babalik sa 0.
     setCurrentImgIndex((prevIndex) => (prevIndex + 1) % project.images.length);
   };
 
   return (
     <div className="project-card">
-      {/* Image Wrapper na may Click Event */}
       <div 
         className="project-image-wrapper" 
         onClick={handleImageClick}
-        style={{ cursor: "pointer", position: "relative" }}
       >
         <img
+          key={currentImgIndex} 
           src={project.images[currentImgIndex]}
-          alt={`${project.title} screenshot ${currentImgIndex + 1}`}
-          className="project-image"
-          title="Click to see next image"
+          alt={`${project.title} screenshot`}
+          className="project-image slide-animation"
         />
 
-        {/* Optional: Indicator Dots para sa User Experience */}
         <div className="image-indicators">
           {project.images.map((_, index) => (
             <span 
@@ -68,15 +61,8 @@ function ProjectCard({ project }) {
 
       <div className="project-content">
         <h3 className="project-title">{project.title}</h3>
+        {/* Malinis na description nang walang GitHub link */}
         <p className="project-description">{project.description}</p>
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-link"
-        >
-          View on GitHub →
-        </a>
       </div>
     </div>
   );
