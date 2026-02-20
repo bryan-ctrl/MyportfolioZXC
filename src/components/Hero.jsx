@@ -7,7 +7,9 @@ export default function Hero() {
       <div className="hero-container">
         {/* Left Side: Hero Text */}
         <div className="hero-content">
-          <h1 className="hero-name">Bryan S. Pacu-an</h1>
+          <div className="typewriter">
+            <h1 className="hero-name">Bryan S. Pacu-an</h1>
+          </div>
           <p className="hero-description">
             I'm a <strong>4th year Student</strong> from <strong>National University</strong>, taking up 
             BSIT Major in Mobile and Web Application. I am passionate about building 
