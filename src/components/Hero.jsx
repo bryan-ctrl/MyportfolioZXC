@@ -19,7 +19,7 @@ export default function Hero() {
 
           <div className="hero-actions">
             <a
-              href="/Resume.pdf"
+              href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-resume"
