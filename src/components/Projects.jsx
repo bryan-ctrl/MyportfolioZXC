@@ -37,9 +37,11 @@ export default function Projects() {
 
   return (
     <section id="projects" className="projects-section">
-      <div className="section-header">
+      <div className="section-header reveal">
         <h2 className="section-title">My Projects</h2>
+        <div className="title-underline"></div>
       </div>
+      
       <div className="projects-container">
         {projectList.map((project, index) => (
           <ProjectCard key={index} project={project} />
@@ -57,32 +59,39 @@ function ProjectCard({ project }) {
   };
 
   return (
-    /* DAGDAG DITO: Nilagyan natin ng 'reveal' class para mag-pop out */
+    /* Naka-reveal class ito para mag-pop up habang nag-scroll */
     <div className="project-card reveal">
-      {/* Nilipat ang Title sa taas ng Image Wrapper */}
-      <h3 className="project-title-top">{project.title}</h3>
+      <div className="project-card-inner">
+        <h3 className="project-title-top">{project.title}</h3>
 
-      <div className="project-image-wrapper" onClick={handleImageClick}>
-        <img
-          key={currentImgIndex} 
-          src={project.images[currentImgIndex]}
-          alt={`${project.title} screenshot`}
-          className="project-image slide-animation"
-        />
-        <div className="image-indicators">
-          {project.images.map((_, index) => (
-            <span key={index} className={`dot ${index === currentImgIndex ? "active" : ""}`}></span>
-          ))}
+        <div className="project-image-wrapper" onClick={handleImageClick}>
+          <img
+            key={currentImgIndex} 
+            src={project.images[currentImgIndex]}
+            alt={`${project.title} screenshot`}
+            className="project-image slide-animation"
+          />
+          
+          <div className="image-indicators">
+            {project.images.map((_, index) => (
+              <span 
+                key={index} 
+                className={`dot ${index === currentImgIndex ? "active" : ""}`}
+              ></span>
+            ))}
+          </div>
+          
+          <div className="click-hint">Click image to slide</div>
         </div>
-      </div>
 
-      <div className="project-content">
-        <div className="tech-badges">
-          {project.techStack.map((tech, index) => (
-            <span key={index} className="tech-tag">
-              {tech}
-            </span>
-          ))}
+        <div className="project-content">
+          <div className="tech-badges">
+            {project.techStack.map((tech, index) => (
+              <span key={index} className="tech-tag">
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
