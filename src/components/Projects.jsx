@@ -57,7 +57,8 @@ function ProjectCard({ project }) {
   };
 
   return (
-    <div className="project-card">
+    /* DAGDAG DITO: Nilagyan natin ng 'reveal' class para mag-pop out */
+    <div className="project-card reveal">
       {/* Nilipat ang Title sa taas ng Image Wrapper */}
       <h3 className="project-title-top">{project.title}</h3>
 

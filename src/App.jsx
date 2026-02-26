@@ -11,12 +11,38 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // 1. LOADER TIMER
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 1200) 
+    }, 1200)
 
-    return () => clearTimeout(timer)
-  }, [])
+    // 2. SCROLL REVEAL (POP-OUT) LOGIC
+    const revealOnScroll = () => {
+      const reveals = document.querySelectorAll(".reveal");
+      
+      reveals.forEach((element) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 120; // Pixels bago mag-trigger ang pop-out
+
+        if (elementTop < windowHeight - elementVisible) {
+          element.classList.add("active");
+        }
+      });
+    };
+
+    // Pag hindi na loading, start na ang scroll listener
+    if (!loading) {
+      window.addEventListener("scroll", revealOnScroll);
+      // Run once para sa mga elements na nasa viewport na agad
+      setTimeout(revealOnScroll, 100); 
+    }
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", revealOnScroll);
+    }
+  }, [loading]);
 
   if (loading) {
     return <Loader />
@@ -29,7 +55,7 @@ function App() {
         <div className="grid-overlay"></div>
         <div className="spotlight-mask"></div>
         
-        {/* Floating Icons/Assets - Gamit ang FontAwesome icons */}
+        {/* Floating Icons */}
         <div className="floating-asset asset-react">
           <i className="fab fa-react"></i>
         </div>
@@ -44,10 +70,18 @@ function App() {
       {/* --- MAIN CONTENT LAYER --- */}
       <div className="content-layer">
         <Navbar />
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
+        {/* Nilagyan ko ng reveal class ang sections para mag-pop out */}
+        <div className="reveal">
+          <Hero />
+        </div>
+        <div className="reveal">
+          <About />
+        </div>
+        {/* Ang Projects card mismo ang may 'reveal' sa loob ng component niya */}
+        <Projects /> 
+        <div className="reveal">
+          <Contact />
+        </div>
       </div>
     </div>
   )
