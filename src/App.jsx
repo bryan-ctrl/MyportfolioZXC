@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 1200) // loading time (pwede mo baguhin)
+    }, 1200) 
 
     return () => clearTimeout(timer)
   }, [])
@@ -23,13 +23,33 @@ function App() {
   }
 
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
-    </>
+    <div className="portfolio-wrapper">
+      {/* --- TECH GRID BACKGROUND LAYER --- */}
+      <div className="bg-fixed-layer">
+        <div className="grid-overlay"></div>
+        <div className="spotlight-mask"></div>
+        
+        {/* Floating Icons/Assets - Gamit ang FontAwesome icons */}
+        <div className="floating-asset asset-react">
+          <i className="fab fa-react"></i>
+        </div>
+        <div className="floating-asset asset-node">
+          <i className="fab fa-node-js"></i>
+        </div>
+        <div className="floating-asset asset-next">
+          <span>N</span>
+        </div>
+      </div>
+
+      {/* --- MAIN CONTENT LAYER --- */}
+      <div className="content-layer">
+        <Navbar />
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </div>
+    </div>
   )
 }
 

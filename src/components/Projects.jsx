@@ -58,6 +58,9 @@ function ProjectCard({ project }) {
 
   return (
     <div className="project-card">
+      {/* Nilipat ang Title sa taas ng Image Wrapper */}
+      <h3 className="project-title-top">{project.title}</h3>
+
       <div className="project-image-wrapper" onClick={handleImageClick}>
         <img
           key={currentImgIndex} 
@@ -73,9 +76,6 @@ function ProjectCard({ project }) {
       </div>
 
       <div className="project-content">
-        <h3 className="project-title">{project.title}</h3>
-        <p className="project-description">{project.description}</p>
-        
         <div className="tech-badges">
           {project.techStack.map((tech, index) => (
             <span key={index} className="tech-tag">
