@@ -292,17 +292,31 @@ body {
   padding: 0 20px;
 }
 
+/* Updated Info Box: Light Dark / Slate Style */
 .info-box {
-  background: var(--box-bg);
-  border: 1px solid var(--border-line);
+  /* Mula sa #1e1e24, ginawa nating #334155 (Slate 700) para mas light dark */
+  background: #334155 !important; 
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15); 
   border-radius: 16px;
   padding: 30px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.info-box h3 {
+  color: #f8fafc !important; /* Off-white para malinis tingnan */
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .info-box:hover {
-  transform: translateY(-5px);
+  background: #475569 !important; /* Bahagyang liliwanag pag na-hover */
+  transform: translateY(-8px);
   border-color: var(--accent);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 .icon-grid {
@@ -315,33 +329,42 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--text-muted);
-  transition: color 0.3s;
+  /* Light gray-blue para hindi masakit sa mata */
+  color: #cbd5e1 !important; 
+  transition: all 0.3s ease;
 }
 
-.icon-item:hover { color: var(--accent); }
-.icon-item i { font-size: 2.5rem; margin-bottom: 8px; }
+.icon-item:hover { 
+  color: var(--accent) !important; 
+  transform: scale(1.1);
+}
+
+.icon-item i { 
+  font-size: 2.5rem; 
+  margin-bottom: 8px; 
+}
 
 /* ========== Projects Section ========== */
 #projects {
   scroll-margin-top: 100px; 
-  padding: 60px 0;
+  padding: 80px 0;
   width: 100%;
   background: var(--main-bg);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
+  /* Malaking cards (500px min) */
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 50px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .project-card {
@@ -353,13 +376,14 @@ body {
   transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 40px; 
+  height: 100%;
 }
 
 .project-image-wrapper {
   width: 100%;
   border-radius: 16px;
-  background: var(--main-bg);
+  background: #ffffff; /* Para solid tignan ang background ng images */
   position: relative;
   cursor: pointer;
   padding: 10px;
@@ -374,34 +398,95 @@ body {
   object-fit: contain; 
   border-radius: 12px;
   display: block;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+
+.project-content {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.project-title {
+  font-size: 2rem; /* Mas malaki na */
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #ffffff;
 }
 
 .project-description {
-  font-size: 0.95rem;
+  color: #94a3b8;
+  font-size: 1.1rem; /* Mas malaki na */
   line-height: 1.6;
-  color: var(--text-muted);
-  margin-bottom: 10px; 
-  text-align: left;
+  margin-bottom: 25px;
 }
 
+/* SOLID PLAIN TECH BADGES */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.tech-tag {
+  /* Alisin ang borders at transparency */
+  border: none !important;
+  outline: none !important;
+  
+  /* Padding and Shape */
+  padding: 8px 18px; 
+  border-radius: 8px;
+  
+  /* Text Style */
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff !important; /* Laging puti ang text */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  /* Minimal Shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+
+.tech-tag:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+/* Indicators & Animations */
 .slide-animation {
   animation: imgFadeIn 0.5s ease-in-out;
 }
 
 @keyframes imgFadeIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
 }
 
 .image-indicators {
   position: absolute;
-  bottom: 15px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
+  gap: 10px;
   z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--accent);
+  width: 25px;
+  border-radius: 10px;
 }
 
 /* ========== Footer Section (LAGING DARK) ========== */
