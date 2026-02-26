@@ -347,24 +347,24 @@ body {
 /* ========== Projects Section ========== */
 #projects {
   scroll-margin-top: 100px; 
-  padding: 80px 0;
+  padding: 60px 0; /* Binawasan ang padding para sa mobile flow */
   width: 100%;
   background: var(--main-bg);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .projects-container {
   display: grid;
-  /* Malaking cards (500px min) */
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 50px;
+  /* MOBILE FIRST: Default ay 1 column na kasya sa screen */
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
+  gap: 30px;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px; /* Mas maliit na padding sa gilid para sa mobile */
 }
 
 .project-card {
@@ -376,17 +376,17 @@ body {
   transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
-  padding: 40px; 
+  padding: 20px; /* Default padding para sa mobile */
   height: 100%;
 }
 
 .project-image-wrapper {
   width: 100%;
   border-radius: 16px;
-  background: #ffffff; /* Para solid tignan ang background ng images */
+  background: #ffffff; 
   position: relative;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
   border: 1px solid var(--border-line);
   overflow: hidden;
@@ -403,51 +403,44 @@ body {
 
 .project-content {
   text-align: center;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .project-title {
-  font-size: 2rem; /* Mas malaki na */
+  font-size: 1.5rem; /* Base size para sa mobile */
   font-weight: 800;
-  margin-bottom: 15px;
-  color: #ffffff;
+  margin-bottom: 12px;
+  color: #ffffff; /* Solid white title */
+  text-transform: uppercase;
 }
 
 .project-description {
   color: #94a3b8;
-  font-size: 1.1rem; /* Mas malaki na */
-  line-height: 1.6;
-  margin-bottom: 25px;
+  font-size: 0.95rem; /* Base size para sa mobile */
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 /* SOLID PLAIN TECH BADGES */
 .tech-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 15px;
+  gap: 10px;
+  margin-top: 10px;
   justify-content: center;
+  
 }
 
 .tech-tag {
-  /* Alisin ang borders at transparency */
-  border: none !important;
-  outline: none !important;
-  
-  /* Padding and Shape */
-  padding: 8px 18px; 
-  border-radius: 8px;
-  
-  /* Text Style */
-  font-size: 0.85rem;
+  color: #ffffff;
+  padding: 6px 14px; 
+  border-radius: 6px;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: #ffffff !important; /* Laging puti ang text */
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  
-  /* Minimal Shadow */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  cursor: default;
+  transition: all 0.2s ease;
 }
 
 .tech-tag:hover {
@@ -467,17 +460,17 @@ body {
 
 .image-indicators {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10px;
+  gap: 8px;
   z-index: 10;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
@@ -485,8 +478,40 @@ body {
 
 .dot.active {
   background: var(--accent);
-  width: 25px;
+  width: 20px;
   border-radius: 10px;
+}
+
+/* ========== DESKTOP UPDATES (Media Query) ========== */
+@media (min-width: 1024px) {
+  #projects {
+    padding: 100px 0;
+  }
+
+  .projects-container {
+    /* Dito natin ibabalik ang "Dambuhala" na size para sa desktop */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    padding: 0 40px;
+    gap: 50px;
+  }
+
+  .project-card {
+    padding: 40px;
+  }
+
+  .project-title {
+    font-size: 2.2rem;
+  }
+
+  .project-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .tech-tag {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
 }
 
 /* ========== Footer Section (LAGING DARK) ========== */
