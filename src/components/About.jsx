@@ -3,6 +3,15 @@ import React from 'react';
 export default function About() {
   return (
     <section id="about" className="about">
+      {/* Floating Background Particles */}
+      <div className="bg-icons">
+        <i className="devicon-react-original floating-icon react-bg"></i>
+        <i className="devicon-tailwindcss-plain floating-icon tailwind-bg"></i>
+        <i className="devicon-git-plain floating-icon git-bg"></i>
+        <i className="devicon-react-original floating-icon react-bg-2"></i>
+        <i className="devicon-github-original floating-icon github-bg"></i>
+      </div>
+
       <div className="about-container">
         <h2 className="section-title">About Me</h2>
 
@@ -17,9 +26,7 @@ export default function About() {
             updated with modern web development trends.
           </p>
 
-          {/* Grids for Skills and Tools */}
           <div className="about-grids">
-            
             {/* Frontend Group */}
             <div className="info-group">
               <h3>Front End</h3>
@@ -65,10 +72,9 @@ export default function About() {
                 </div>
               </div>
             </div>
-
-          </div> {/* End of about-grids */}
-        </div> {/* End of about-card */}
-      </div> {/* End of about-container */}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

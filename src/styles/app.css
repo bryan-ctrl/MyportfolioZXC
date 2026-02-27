@@ -302,6 +302,64 @@ body {
   transform: translateY(-3px);
 }
 
+/* ========== Hero Floating Particles ========== */
+.hero-split {
+  position: relative;
+  overflow: hidden; /* Para hindi lumabas ang icons sa section */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Sa likod ng text */
+  pointer-events: none;
+}
+
+.floating-icon {
+  position: absolute;
+  font-size: 4.5rem;
+  opacity: 0.08; /* Malabo lang para hindi distracting */
+  filter: grayscale(100%);
+  animation: hero-float 12s ease-in-out infinite;
+}
+
+/* Positions ng icons sa Hero */
+.hero-react { top: 15%; left: 10%; animation-delay: 0s; }
+.hero-tailwind { top: 70%; left: 5%; animation-delay: 2s; }
+.hero-git { top: 20%; left: 85%; animation-delay: 4s; }
+.hero-js { top: 75%; left: 80%; animation-delay: 1s; }
+
+/* Animation para sa Hero */
+@keyframes hero-float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(20px, -30px) rotate(15deg);
+  }
+}
+
+/* Siguraduhin na ang content ay nasa ibabaw ng icons */
+.hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+  .floating-icon {
+    font-size: 2.5rem;
+    opacity: 0.05;
+  }
+}
+
+
 /* ========== About Section Base ========== */
 .about {
   padding: 100px 0;
@@ -439,6 +497,64 @@ body {
   }
 }
 
+/* Container ng Background Icons */
+.bg-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Base style para sa bawat floating icon */
+.floating-icon {
+  position: absolute;
+  font-size: 5rem; /* Mas malaki para magmukhang particles */
+  opacity: 0.07; /* Sobrang labo lang para elegant tingnan */
+  filter: grayscale(100%); /* Gawing gray para hindi makipag-agawan sa main content */
+  animation: float-around 15s ease-in-out infinite;
+}
+
+/* Custom Positions at Animations */
+.react-bg { top: 10%; left: 5%; animation-duration: 18s; }
+.tailwind-bg { top: 60%; left: 12%; animation-duration: 22s; animation-delay: 2s; }
+.git-bg { top: 20%; left: 85%; animation-duration: 20s; animation-delay: 4s; }
+.react-bg-2 { top: 80%; left: 75%; animation-duration: 25s; animation-delay: 1s; }
+.github-bg { top: 45%; left: 88%; animation-duration: 19s; animation-delay: 3s; }
+
+/* The Floating & Bouncing Animation */
+@keyframes float-around {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -50px) rotate(10deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(-10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Siguraduhin na ang About Container ay laging nasa ibabaw */
+.about-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile Fix: Pinaliit ang floating icons sa phone */
+@media (max-width: 768px) {
+  .floating-icon {
+    font-size: 3rem;
+    opacity: 0.05;
+  }
+}
+
 /* ========== Projects Section ========== */
 #projects {
   scroll-margin-top: 100px; 
@@ -552,6 +668,61 @@ body {
   gap: 12px !important; /* Spacing para sa E-commerce at Capstone tags */
   margin-top: 20px;
   justify-content: center;
+}
+
+/* ========== Projects Floating Particles ========== */
+.projects-section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 80px 0;
+}
+
+.bg-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-icon {
+  position: absolute;
+  font-size: 5rem;
+  opacity: 0.06;
+  filter: grayscale(100%);
+  animation: project-float 15s ease-in-out infinite;
+}
+
+/* Positioning para sa Projects Background */
+.proj-node { top: 10%; left: 5%; animation-delay: 0s; }
+.proj-mongo { top: 40%; left: 88%; animation-delay: 3s; }
+.proj-js { top: 80%; left: 10%; animation-delay: 2s; }
+.proj-react { top: 20%; left: 80%; animation-delay: 5s; }
+.proj-github { top: 70%; left: 85%; animation-delay: 1s; }
+
+@keyframes project-float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-30px, 40px) rotate(-15deg);
+  }
+}
+
+.section-header, 
+.projects-container {
+  position: relative;
+  z-index: 1; /* Para laging nasa ibabaw ang projects card */
+}
+
+@media (max-width: 768px) {
+  .floating-icon {
+    font-size: 3rem;
+    opacity: 0.04;
+  }
 }
 
 /* ========== Footer Section ========== */

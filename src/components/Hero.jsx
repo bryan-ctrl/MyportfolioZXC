@@ -4,6 +4,14 @@ import profile from '../assets/profile.jpg';
 export default function Hero() {
   return (
     <section id="home" className="hero-split">
+      {/* Floating Background Particles */}
+      <div className="bg-icons">
+        <i className="devicon-react-original floating-icon hero-react"></i>
+        <i className="devicon-tailwindcss-plain floating-icon hero-tailwind"></i>
+        <i className="devicon-git-plain floating-icon hero-git"></i>
+        <i className="devicon-javascript-plain floating-icon hero-js"></i>
+      </div>
+
       <div className="hero-container">
         {/* Left Side: Hero Text */}
         <div className="hero-content">

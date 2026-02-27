@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-// Imports para sa Project 1
+// Project 1 Images
 import projectImage1 from "../assets/image.png";
 import projectImage2 from "../assets/image2.png";
 import projectImage3 from "../assets/image3.png";
 import projectImage4 from "../assets/image4.png";
 import projectImage5 from "../assets/image5.png";
 
-// Imports para sa Mariswka/Capstone Project (1-12)
+// Capstone Project Images (1-12)
 import m1 from "../assets/mariwska1.png";
 import m2 from "../assets/mariwska2.png";
 import m3 from "../assets/mariwska3.png";
@@ -37,6 +37,15 @@ export default function Projects() {
 
   return (
     <section id="projects" className="projects-section">
+      {/* Floating Background Particles */}
+      <div className="bg-icons">
+        <i className="devicon-nodejs-plain floating-icon proj-node"></i>
+        <i className="devicon-mongodb-plain floating-icon proj-mongo"></i>
+        <i className="devicon-javascript-plain floating-icon proj-js"></i>
+        <i className="devicon-react-original floating-icon proj-react"></i>
+        <i className="devicon-github-original floating-icon proj-github"></i>
+      </div>
+
       <div className="section-header reveal">
         <h2 className="section-title">My Projects</h2>
         <div className="title-underline"></div>
@@ -59,7 +68,6 @@ function ProjectCard({ project }) {
   };
 
   return (
-    /* Naka-reveal class ito para mag-pop up habang nag-scroll */
     <div className="project-card reveal">
       <div className="project-card-inner">
         <h3 className="project-title-top">{project.title}</h3>
