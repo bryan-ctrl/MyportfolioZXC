@@ -1,4 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button, input, select, textarea, a {
+  font-family: 'Poppins', sans-serif;
+}
 
 /* ========== THEME VARIABLES ONLY ========== */
 :root {
@@ -109,7 +124,6 @@ body {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 /* navbar styles */
 .nav {
   position: fixed;
@@ -288,123 +302,140 @@ body {
   transform: translateY(-3px);
 }
 
-/* ========== About Section ========== */
+/* ========== About Section Base ========== */
 .about {
   padding: 100px 0;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
   width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.about-container {
+  width: 95%; /* Mas malapad para sa malalaking screen */
+  max-width: 1200px;
 }
 
 .about-card {
   background: var(--card-bg);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border: 1px solid var(--border-line);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 850px;
-  width: 90%;
-  margin: 0 auto;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  border-radius: 25px;
+  padding: 60px 40px; /* Mas malaking padding sa desktop */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  font-size: 3rem; /* Mas malaki sa web */
+  margin-bottom: 25px;
   color: var(--accent);
-  font-weight: 700;
   font-family: 'Poppins', sans-serif;
+  font-weight: 800;
 }
 
 .about-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  text-align: center;
   color: var(--text-light);
-  text-align: center;
+  font-size: 1.2rem; /* Mas readable sa desktop */
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 50px;
 }
 
-/* ========== Centered Grids Fix ========== */
+/* ========== Grids Layout ========== */
 .about-grids {
-  display: flex; 
-  flex-direction: column; /* Eto ang naglagay sa Tools sa ibaba ng Frontend */
-  align-items: center;    /* Sinisiguro na laging center ang buong group */
-  gap: 60px;              /* Space sa pagitan ng Frontend group at Tools group */
-  max-width: 1100px;
-  width: 100%;
-  margin: 60px auto 0;
-  padding: 0 20px;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;/* Eto ang magpapatakbo sa lahat sa gitna */
+  gap: 80px; 
+  width: 100%;/* Siguradong sakop ang buong lapad */
 }
 
-/* Label para sa bawat tech group (Frontend / Tools) */
-.about-grids h3 {
-  color: #f8fafc;
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  font-weight: 600;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
+.info-group h3 {
+  color: #fff;
+  margin-bottom: 40px;
+  font-size: 2rem; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center; /* Eto para sa Title (Frontend/Tools) */
 }
 
-/* ========== Icon Grid Alignment ========== */
+/* ========== The Dynamic Icon Box ========== */
 .icon-grid {
-  display: grid;
-  /* Sa desktop, gawin nating 4 o 5 columns para hindi masyadong mahaba pababa */
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
-  gap: 40px;
-  width: 100%;
-  max-width: 900px; /* Nilimitahan para hindi masyadong kalat ang icons */
-  justify-items: center; 
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center ang mga boxes */
+  gap: 25px; 
+  width: 100%;             /* Importante para gumana ang centering */
 }
 
 .icon-item {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  
+  /* WEB SIZE: Mas malaki at maganda tingnan */
+  width: 160px; 
+  height: 160px; 
+  
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #cbd5e1 !important;
-  transition: all 0.3s ease;
-  width: 100%;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(10px);
 }
 
 .icon-item:hover {
-  color: var(--accent) !important;
-  transform: translateY(-10px); /* Tatalon paitaas ng konti */
+  border-color: var(--accent);
+  transform: translateY(-12px) scale(1.05); /* May konting zoom effect */
+  background: rgba(30, 41, 59, 0.7);
+  box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
 }
 
 .icon-item i {
-  font-size: 3rem; /* Mas malaki na dahil wala nang box */
-  margin-bottom: 12px;
+  font-size: 3.5rem; /* Malaking icons sa desktop */
+  margin-bottom: 15px;
 }
 
 .icon-item span {
   font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
+  font-weight: 600;
+  color: #e2e8f0;
 }
 
-/* ========== Mobile View Responsive ========== */
+/* ========== TABLET VIEW (768px) ========== */
+@media (max-width: 992px) {
+  .icon-item {
+    width: 140px;
+    height: 140px;
+  }
+  .icon-item i { font-size: 3rem; }
+}
+
+/* ========== MOBILE VIEW (FIXED) ========== */
 @media (max-width: 768px) {
-  .about-grids {
-    gap: 50px; /* Konting liit ng gap sa mobile */
-  }
-
-  .icon-grid {
-    /* 3 columns sa mobile para hindi siksikan */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 25px;
-  }
-
-  .section-title {
-    font-size: 2rem;
+  .about-card { padding: 40px 20px; }
+  .section-title { font-size: 2.2rem; }
+  
+  .icon-grid { gap: 15px; }
+  
+  .icon-item {
+    width: 105px; /* Saktong size sa mobile para hindi mukhang maliit */
+    height: 105px;
+    border-radius: 15px;
   }
   
-  .icon-item i {
-    font-size: 2.5rem;
+  .icon-item i { font-size: 2.2rem; }
+  .icon-item span { font-size: 0.8rem; }
+}
+
+/* Para sa napakaliit na screen (iPhone SE) */
+@media (max-width: 380px) {
+  .icon-item {
+    width: 90px;
+    height: 90px;
   }
 }
 

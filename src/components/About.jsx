@@ -1,7 +1,9 @@
+import React from 'react';
+
 export default function About() {
   return (
     <section id="about" className="about">
-      <div className="about-container"> {/* Wrapper para sa buong content */}
+      <div className="about-container">
         <h2 className="section-title">About Me</h2>
 
         <div className="about-card">
@@ -17,8 +19,9 @@ export default function About() {
 
           {/* Grids for Skills and Tools */}
           <div className="about-grids">
-            {/* Skills */}
-            <div className="info-box large-box">
+            
+            {/* Frontend Group */}
+            <div className="info-group">
               <h3>Front End</h3>
               <div className="icon-grid">
                 <div className="icon-item">
@@ -44,8 +47,8 @@ export default function About() {
               </div>
             </div>
 
-            {/* Tools */}
-            <div className="info-box large-box">
+            {/* Tools Group */}
+            <div className="info-group">
               <h3>Tools</h3>
               <div className="icon-grid">
                 <div className="icon-item">
@@ -62,9 +65,10 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+
+          </div> {/* End of about-grids */}
+        </div> {/* End of about-card */}
+      </div> {/* End of about-container */}
     </section>
   );
 }
