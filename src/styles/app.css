@@ -554,8 +554,6 @@ body {
   justify-content: center;
 }
 
-.tech-tag:hover { background-color: var(--accent) !important; transform: translateY(-2px); }
-
 /* ========== Footer Section ========== */
 .footer-section {
   padding: 60px 20px;
